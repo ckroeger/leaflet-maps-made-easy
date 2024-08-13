@@ -1,13 +1,7 @@
-# static-html-template
-A template repository to bootstrap simple html content.
-It is a GitHub template for HTML pages with a live server and Rollup bundling.
+# Tech Talk leaflet - maps made easy
 
+![Teaser Image](docs/teaser.png)
 
-## Features
-
-- HTML, CSS, and JavaScript structure
-- Live server for development
-- Bundling with Rollup
 
 ## Structure
 ```
@@ -33,8 +27,8 @@ It is a GitHub template for HTML pages with a live server and Rollup bundling.
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/your-username/my-html-template.git
-    cd my-html-template
+    git clone git@github.com:ckroeger/leaflet-maps-made-easy.git
+    cd leaflet-maps-made-easy
     ```
 
 2. Install the dependencies:
