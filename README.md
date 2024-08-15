@@ -52,3 +52,8 @@ Build an bundle:
 ```sh
 npm run build
 ```
+
+# Sources
+* [Leaflet - a JavaScript library for interactive maps](https://leafletjs.com/)
+* [Quick Start Guide - Leaflet - a JavaScript library for interactive maps](https://leafletjs.com/examples/quick-start/)
+* [Documentation - Leaflet - a JavaScript library for interactive maps](https://leafletjs.com/reference.html)
