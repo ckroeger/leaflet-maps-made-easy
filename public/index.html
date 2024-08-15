@@ -3,11 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Static HTML Template</title>
+    <title>Leaflet - Maps made easy</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
   </head>
   <body>
-    <h1>Hello World</h1>
+    <div id="map"></div>
     <script src="/bundle.js" defer></script>
+
+    <script>
+      const pos = [53.54774891154145, 9.98363825032787];
+      const map = L.map('map').setView(pos, 19);
+      
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 20,
+      }).addTo(map);
+      
+      L.marker(pos).addTo(map)
+        .bindPopup('Hamburg, Germany')
+        .openPopup();
+
+      L.circle(pos, {
+        color: 'green',
+        fillColor: 'green',
+        fillOpacity: 0.2,
+        radius: 10
+      }).addTo(map);
+
+      var clickPos = [];
+      map.on('click', drawPolygon);
+
+      function drawLine(e) {
+        clickPos.push(e.latlng);
+        if (clickPos.length > 1) {
+          L.polyline(clickPos, {color: 'red'}).addTo(map);
+          clickPos = [];
+        }
+      }
+
+      function drawPolygon(e) {
+        clickPos.push(e.latlng);
+        if (clickPos.length > 2) {
+          L.polygon(clickPos, {color: 'blue'}).addTo(map);
+          clickPos = [];
+        }
+      }
+
+
+    </script>
   </body>
 </html>
